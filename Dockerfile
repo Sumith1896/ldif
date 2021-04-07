@@ -1,5 +1,5 @@
 # FROM defines the base image
-FROM nvidia/opengl:base-ubuntu16.04
+FROM nvidia/cudagl:11.2.2-devel-ubuntu16.04
 ENV PATH="/root/miniconda3/bin:${PATH}"
 ARG PATH="/root/miniconda3/bin:${PATH}"
 
@@ -22,8 +22,8 @@ RUN git clone https://github.com/Sumith1896/ldif && cd ldif && \
  conda env create --name ldif -f environment.yml  
 
 SHELL ["conda", "run", "-n", "ldif", "/bin/bash", "-c"]
-RUN cd ldif && git pull origin master && ./build_gaps.sh 
-RUN cd ldif && git pull origin master && ./build_kernel.sh 
+RUN cd ldif && ./build_gaps.sh 
+RUN cd ldif && ./build_kernel.sh 
 
 # CMD defines the default command to be run in the container 
 # CMD is overridden by supplying a command + arguments to 

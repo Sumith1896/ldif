@@ -43,6 +43,7 @@ if [[ $major_version -ge 10 ]]; then
 fi
 
 nvcc -Xptxas -O3 \
+  -std=c++11 \
   ${targets} \
   --ptxas-options=-v -maxrregcount 63 $1 \
   ldif2mesh.cu -o ldif2mesh
