@@ -12,12 +12,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-if [[ $(uname -s) == Darwin* ]]
-then 
-  echo "Building the kernel is not supported when running MacOS,"\
-    "because MacOS does not support CUDA. Please pass"\
-    "--nouse_inference_kernel to eval.py, and continue to the"\
-    "next step."
-else
-  bash $(dirname $0)/ldif/ldif2mesh/build.sh
-fi
+# if [[ $(uname -s) == Darwin* ]]
+# then 
+#   echo "Building the kernel is not supported when running MacOS,"\
+#     "because MacOS does not support CUDA. Please pass"\
+#     "--nouse_inference_kernel to eval.py, and continue to the"\
+#     "next step."
+# else
+bash $(dirname $0)/ldif/ldif2mesh/build.sh
+# fi

@@ -23,6 +23,7 @@ RUN git clone https://github.com/Sumith1896/ldif && cd ldif && \
 
 SHELL ["conda", "run", "-n", "ldif", "/bin/bash", "-c"]
 RUN cd ldif && git pull origin master && ./build_gaps.sh 
+RUN cd ldif && git pull origin master && ./build_kernel.sh 
 
 # CMD defines the default command to be run in the container 
 # CMD is overridden by supplying a command + arguments to 
