@@ -56,10 +56,10 @@ flags.DEFINE_boolean(
     ' in-place.')
 
 flags.DEFINE_integer(
-    'max_threads', 1, 'The maximum number of threads to use.'
+    'max_threads', -1, 'The maximum number of threads to use.'
     ' If -1, will allocate all available threads on CPU.')
 
-flags.DEFINE_string('log_level', 'VERBOSE',
+flags.DEFINE_string('log_level', 'INFO',
     'One of VERBOSE, INFO, WARNING, ERROR. Sets logs to print '
     'only at or above the specified level.')
 
