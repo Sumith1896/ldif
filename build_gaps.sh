@@ -68,7 +68,7 @@ echo "	cd qview; \$(MAKE) \$(TARGET)" >> ./apps/Makefile
 # On MacOS, using OSMesa is more difficult, so we don't
 # if [[ ! $(uname -s) == Darwin* ]]
 # then
-#   make mesa -j8
+make mesa -j8
 # else
-make -j8
+# make -j8
 # fi

@@ -36,22 +36,23 @@ set -v
 
 # Get the path to the LDIF code.
 bd=$(dirname $0)
-dataset=${bd}/shapenet
+inputdata=${bd}/data/ShapeNet
+dataset=${bd}/data/shapenet-ldif-data
 models=${bd}/trained_models
 results=${bd}/shapenet-results
 # First, make the dataset
 
-python meshes2dataset.py --mesh_directory ${bd}/input_meshes \
+python meshes2dataset.py --mesh_directory $inputdata \
   --dataset_directory $dataset
 
-python train.py --batch_size 24 --experiment_name shapenet-ldif \
-  --model_directory $models --model_type "ldif" \
-  --dataset_directory $dataset
+# python train.py --batch_size 24 --experiment_name shapenet-ldif \
+#   --model_directory $models --model_type "ldif" \
+#   --dataset_directory $dataset
 
-python eval.py --dataset_directory $dataset --model_directory $models \
-  --experiment_name single-shape-ldif --split test --log_level verbose \
-  --use_inference_kernel --result_directory $results --save_ldifs \
-  --save_results --save_meshes --visualize
+# python eval.py --dataset_directory $dataset --model_directory $models \
+#   --experiment_name single-shape-ldif --split test --log_level verbose \
+#   --use_inference_kernel --result_directory $results --save_ldifs \
+#   --save_results --save_meshes --visualize
 
 
 

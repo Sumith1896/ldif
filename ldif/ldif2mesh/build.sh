@@ -28,19 +28,19 @@ targets="-gencode=arch=compute_60,code=sm_60 \
   -gencode=arch=compute_62,code=sm_62"
 
 # Support for Volta (e.g. V100). Requires CUDA 9.
-if [[ $major_version -ge 9 ]]; then
-  echo "Adding CUDA 9 Targets."
-  targets="${targets} \
-    -gencode=arch=compute_70,code=sm_70 \
-    -gencode=arch=compute_72,code=sm_72"
-fi
+# if [[ $major_version -ge 9 ]]; then
+echo "Adding CUDA 9 Targets."
+targets="${targets} \
+  -gencode=arch=compute_70,code=sm_70 \
+  -gencode=arch=compute_72,code=sm_72"
+# fi
 
 # Support for Turing (e.g. RTX 2080 Ti). Requires CUDA 10.
-if [[ $major_version -ge 10 ]]; then
-  echo "Adding CUDA 10 Targets."
-  targets="${targets} \
-    -gencode=arch=compute_75,code=sm_75"
-fi
+# if [[ $major_version -ge 10 ]]; then
+echo "Adding CUDA 10 Targets."
+targets="${targets} \
+  -gencode=arch=compute_75,code=sm_75"
+# fi
 
 nvcc -Xptxas -O3 \
   -std=c++11 \
