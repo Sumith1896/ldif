@@ -25,6 +25,9 @@ SHELL ["conda", "run", "-n", "ldif", "/bin/bash", "-c"]
 RUN cd ldif && ./build_gaps.sh 
 RUN cd ldif && ./build_kernel.sh 
 
+ADD ./data/ /home/ldif/data/
+ADD ./trained_models/ /home/ldif/trained_models/
+
 # CMD defines the default command to be run in the container 
 # CMD is overridden by supplying a command + arguments to 
 # `docker run`, e.g. `nvcc --version` or `bash`
