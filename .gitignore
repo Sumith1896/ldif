@@ -2,4 +2,6 @@ ldif/__pycache__
 ldif/*/__pycache__
 ldif/gaps
 ldif/ldif2mesh/ldif2mesh
+/data/
+/trained_models/
 .DS_Store
