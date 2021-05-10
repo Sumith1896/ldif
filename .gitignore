@@ -4,4 +4,5 @@ ldif/gaps
 ldif/ldif2mesh/ldif2mesh
 /data/
 /trained_models/
+slurm*.out
 .DS_Store
