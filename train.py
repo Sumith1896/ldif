@@ -1,3 +1,4 @@
+gpu_id_to_use = 1 # echo $SLURM_STEP_GPUS
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +19,8 @@
 # pylint: disable=g-import-not-at-top
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id_to_use)
 
 import sys
 import time
@@ -207,7 +210,7 @@ def main(argv):
   checkpoint_dir = f'{experiment_dir}/1-hparams/train/'
 
   if FLAGS.reserve_memory_for_inference_kernel and sys.platform != "darwin":
-    current_free = gpu_util.get_free_gpu_memory(0)
+    current_free = gpu_util.get_free_gpu_memory(gpu_id_to_use)
     allowable = current_free - (1024 + 512)  # ~1GB
     allowable_fraction = allowable / current_free
     if allowable_fraction <= 0.0:

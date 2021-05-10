@@ -42,12 +42,12 @@ models=${bd}/trained_models
 results=${bd}/shapenet-results
 # First, make the dataset
 
-python meshes2dataset.py --mesh_directory $inputdata \
-  --dataset_directory $dataset
+python meshes2dataset.py --mesh_directory /home/ldif/data/ShapeNet \
+  --dataset_directory /home/ldif/data/shapenet-ldif-data
 
-# python train.py --batch_size 24 --experiment_name shapenet-ldif \
-#   --model_directory $models --model_type "ldif" \
-#   --dataset_directory $dataset
+python train.py --batch_size 24 --experiment_name shapenet-ldif-baseline \
+  --model_directory /home/ldif/trained_models --model_type "ldif" \
+  --dataset_directory /home/ldif/data/shapenet-ldif-data
 
 # python eval.py --dataset_directory $dataset --model_directory $models \
 #   --experiment_name single-shape-ldif --split test --log_level verbose \
