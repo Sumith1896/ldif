@@ -1,6 +1,7 @@
 # FROM defines the base image
 # FROM nvidia/cudagl:11.2.2-devel-ubuntu16.04
-FROM nvidia/cudagl:10.1-devel-ubuntu16.04
+# FROM nvidia/cudagl:10.1-devel-ubuntu16.04
+FROM nvidia/cudagl:10.1-devel-ubuntu18.04
 ENV PATH="/root/miniconda3/bin:${PATH}"
 ARG PATH="/root/miniconda3/bin:${PATH}"
 
