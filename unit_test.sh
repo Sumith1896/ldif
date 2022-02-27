@@ -22,6 +22,7 @@ set -v
 # First, make the dataset. mktemp should be available by default
 # on linux + macos
 d=$(mktemp -d)
+d=./DELETEME
 echo $d
 # Do everything in the temp directory, just to be tidy.
 mkdir -p ${d}/input_meshes/train/animal/

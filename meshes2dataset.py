@@ -48,7 +48,7 @@ flags.DEFINE_string('mesh_directory', '', 'Path to meshes. This folder should'
 flags.DEFINE_string('dataset_directory', '', 'Path to output dataset.')
 
 flags.DEFINE_boolean(
-    'skip_existing', True, 'Whether to skip process examples'
+    'skip_existing', False, 'Whether to skip process examples'
     ' that are already written into the output dataset. True'
     ' enables completing a processing run that crashed, or '
     ' adding examples to a dataset that already exists with'

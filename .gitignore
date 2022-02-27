@@ -6,3 +6,4 @@ ldif/ldif2mesh/ldif2mesh
 /trained_models/
 slurm*.out
 .DS_Store
+*.sqsh

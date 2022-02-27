@@ -152,7 +152,8 @@ class SimpleLog(Log):
       raise ValueError(f'Invalid logging level: {level}')
     if level.lower() not in self.visible_levels:
       return  # Too low level to display
-    print(f'{level.upper()}: {msg}')
+    msg_str = msg.encode('utf-8').strip()
+    print(f'{level}: {msg_str}')
 
   def verbose(self, msg):
     self.log(msg, level='verbose')
